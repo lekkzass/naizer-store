@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAIZER</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/x-icon" href="logo.png">
+</head>
+<body>
+
+
+    <div class="loginForm">
+        <form action="main.html" onsubmit="return validateForm()" method="get">
+        <h1 style="color: white; font-size: 50px;">Hi! What should I call you?</h1>
+        <input type="text" name="name" id="name" placeholder="Input your name" class="inputName" onchange="upperCase()"> <br>
+        <input type="submit" value="Submit" class="submitButton">
+        </form>
+    </div>
+
+    <div class="gifGreeting">
+        <img src="minion.gif" alt="greetingGIF" style="width: 300px; height: 300px; border:0; margin-top: -120px;">
+    </div>
+    
+    <script>
+        function upperCase() 
+        {
+            const UPname = document.getElementById("name");
+            UPname.value = UPname.value.toUpperCase();
+        }
+
+        function validateForm() 
+        {
+            let name = document.getElementsByTagName("input")[0].value;
+            if (name == "") 
+            {
+                alert("Please insert your name");
+                return false;
+            }
+            else
+            {
+                window.location.href = "main.html";
+                return true;
+            }
+            
+        }
+
+    </script>
+</body>
+
+
+</html>

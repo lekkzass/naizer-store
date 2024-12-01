@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAIZER</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/x-icon" href="logo.png">
+</head>
+<body>
+    <div class="topnav" style="width: 1915px; height: 150px;">
+        <nav>
+            <h2 class="logo"> <span style="color: #00a2f9;">NAIZER </span>&nbsp;STORE</h2>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="membership.html">Be our member?</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="login.html">Exit</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="sub-title">
+        <div class="sub-title-text">
+            <h1 class="logo">Choose your <span style="color: #00a2f9;">order!</span></h1>
+        </div>
+        
+        <table>
+            <tr>
+                <th>Product Image</th>
+                <th style="width: 400px;">Product Name</th>
+                <th style="width: 100px;">Price</th>
+                <th style="width: 50px;">Select</th>
+                <th style="width: 50px;">Quantity</th>
+            </tr>
+            <tr>
+                <td><img src="headphone-2.webp" class="product-image"></td>
+                <td>HEADPHONE:<br><br><span style="color: #00a2f9;">PRO X 2 LIGHTSPEED</span><br>LIGHTSPEED Wireless Gaming Headset</td>
+                <td>RM 1,099.00</td>
+                <td><input type="checkbox" name="headphone" id="headphone"></td>
+                <td><input type="number" value="0" min="0" name="Qheadphone" id="Qheadphone" style="width: 40px;"></td>
+            </tr>
+            <tr>
+                <td><img src="mouse.webp" class="product-image"></td>
+                <td>MOUSE:<br><br><span style="color: #00a2f9;">PRO X SUPERLIGHT 2</span><br>Wireless Mouse</td>
+                <td>RM 689.30</td>
+                <td><input type="checkbox" name="mouse" id="mouse"></td>
+                <td><input type="number" value="0" min="0" name="Qmouse" id="Qmouse" style="width: 40px;"></td>
+            </tr>
+            <tr>
+                <td><img src="keyboard.webp" class="product-image"></td>
+                <td>KEYBOARD:<br><br><span style="color: #00a2f9;">G915 X LIGHTSPEED</span><br>Wireless Gaming Keyboard</td>
+                <td>RM 899.80</td>
+                <td><input type="checkbox" name="keyboard" id="keyboard"></td>
+                <td><input type="number" value="0" min="0" name="Qkeyboard" id="Qkeyboard" style="width: 40px;"></td>
+            </tr>
+            <tr>
+                <td><img src="mousepad.webp" class="product-image"></td>
+                <td>MOUSEPAD:<br><br><span style="color: #00a2f9;">Mouse Pad Aurora</span><br>Aurora Collection Mouse Pad</td>
+                <td>RM 47.60</td>
+                <td><input type="checkbox" name="mousepad" id="mousepad"></td>
+                <td><input type="number" value="0" min="0" name="Qmousepad" id="Qmousepad" style="width: 40px;"></td>
+            </tr>
+            <tr>
+                <td><img src="microphone.webp" class="product-image"></td>
+                <td>MICROPHONE:<br><br><span style="color: #00a2f9;">Yeti GX</span><br>Dynamic RGB Gaming Microphone with LIGHTSYNC</td>
+                <td>RM 659.20</td>
+                <td><input type="checkbox" name="microphone" id="microphone"></td>
+                <td><input type="number" value="0" min="0" name="Qmicrophone" id="Qmicrophone" style="width: 40px;"></td>
+            </tr>
+            <tr>
+                <td><img src="gamepad.webp" class="product-image"></td>
+                <td>GAMEPAD:<br><br><span style="color: #00a2f9;">F710</span><br>Wireless Gamepad</td>
+                <td>RM 179.10</td>
+                <td><input type="checkbox" name="gamepad" id="gamepad"></td>
+                <td><input type="number" value="0" min="0" name="Qgamepad" id="Qgamepad" style="width: 40px;"></td>
+            </tr>
+        </table>
+
+        <button class="payButton" onmouseover="mOver(this)" onmouseout="mOut(this)" onclick="calculateTotal()">Pay Now</button>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-inner">
+            <h2>Thank You!</h2>
+            <p>Your total price is: <br><b style="font-size: 18px;">RM <span class="totalPrice"></span></b> </p>
+            <button id="closeModal" class="closeModal">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function mOver(obj) {
+            obj.innerHTML = "Confirm?";
+        }
+
+        function mOut(obj) {
+            obj.innerHTML = "Pay Now";
+        }
+
+        function calculateTotal() {
+            var totalP = 0;
+
+            var headphone = document.getElementById("headphone");
+            var Qheadphone = parseInt(document.getElementById("Qheadphone").value) || 0;
+            var mouse = document.getElementById("mouse");
+            var Qmouse = parseInt(document.getElementById("Qmouse").value) || 0;
+            var keyboard = document.getElementById("keyboard");
+            var Qkeyboard = parseInt(document.getElementById("Qkeyboard").value) || 0;
+            var mousepad = document.getElementById("mousepad");
+            var Qmousepad = parseInt(document.getElementById("Qmousepad").value) || 0;
+            var microphone = document.getElementById("microphone");
+            var Qmicrophone = parseInt(document.getElementById("Qmicrophone").value) || 0;
+            var gamepad = document.getElementById("gamepad");
+            var Qgamepad = parseInt(document.getElementById("Qgamepad").value) || 0;
+
+            var Pheadphone = 1099.00;
+            var Pmouse = 689.30;
+            var Pkeyboard = 899.80;
+            var Pmousepad = 47.60;
+            var Pmicrophone = 659.20;
+            var Pgamepad = 179.10;
+
+            if (headphone.checked) {
+                totalP += Pheadphone * Qheadphone;
+            }
+            if (mouse.checked) {
+                totalP += Pmouse * Qmouse;
+            }
+            if (keyboard.checked) {
+                totalP += Pkeyboard * Qkeyboard;
+            }
+            if (mousepad.checked) {  
+                totalP += Pmousepad * Qmousepad;
+            }
+            if (microphone.checked) {
+                totalP += Pmicrophone * Qmicrophone;
+            }
+            if (gamepad.checked) {
+                totalP += Pgamepad * Qgamepad;
+            }
+
+            document.querySelector(".totalPrice").innerHTML = totalP.toFixed(2);
+
+            const modal = document.getElementById("modal");
+            modal.classList.add("open");
+
+            headphone.checked = false;
+            mouse.checked = false;
+            keyboard.checked = false;
+            mousepad.checked = false;
+            microphone.checked = false;
+            gamepad.checked = false;
+
+            document.getElementById("Qheadphone").value = '';
+            document.getElementById("Qmouse").value = '';
+            document.getElementById("Qkeyboard").value = '';
+            document.getElementById("Qmousepad").value = '';
+            document.getElementById("Qmicrophone").value = '';
+            document.getElementById("Qgamepad").value = '';
+        }
+
+        const closeBtn = document.getElementById("closeModal");
+        closeBtn.addEventListener("click", () => {
+            const modal = document.getElementById("modal");
+            modal.classList.remove("open");
+        });
+    </script>
+</body>
+</html>

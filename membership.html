@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAIZER</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/x-icon" href="logo.png">
+</head>
+<body>
+    <div class="topnav" style="width: 1932px; height: 150px;">
+        <nav>
+            <h2 class="logo"> <span style="color: #00a2f9;">NAIZER </span>&nbsp;STORE</h2>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="membership.html">Be our member?</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="login.html">Exit</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="sub-title">
+        <div class="sub-title-text">
+            <h1 class="logo">Be our <span style="color: #00a2f9;">member</span></h1>
+            <h2 style="color: #00a2f9;">Fill the details below</h2>
+        </div>
+
+        <div class="member-form" style="color: white; width: max-content; margin-left: 400px;">
+            <form id="registrationForm">
+                <fieldset style="width: 600px; border: 4px solid #00a2f9; border-radius: 4px;">
+                    <legend style="font-size: 20px;"><b>Registration Form</b></legend>
+                    <br>
+                    <div class="section-input">
+                    <p style="width: max-content;">Full Name</p>
+                    <input type="text" name="fullname" id="fname" placeholder="Full Name" style="height: max-content; width: 400px; margin-left: 10px;" onchange="upperCase()" required><br><br>
+                    </div>
+        
+                    <div class="section-input">
+                    <p style="width: max-content;">Gender</p>
+                    <input type="radio" name="gender" value="male" style="margin-left: 10px;" checked> <p style="width: max-content;">Male</p>
+                    <input type="radio" name="gender" value="female" style="margin-left: 10px;"> <p style="width: max-content;">Female</p><br><br>
+                    </div>
+
+                    <div class="section-input">
+                    <p style="width: max-content;">Date Of Birth</p>
+                    <input type="date" id="dateInput" name="date" style="margin-left: 10px;"> <br><br>
+                    </div>
+                    
+                    <div class="section-input">
+                    <p style="width: max-content;">Email</p>
+                        <input type="email" id="email" name="email" placeholder="someone@example.com" style="margin-left: 10px;"><br>
+                    </div>
+
+        
+        
+                </fieldset>
+                <br>
+                <button  id="openModal" class="btnFS">Submit</button>  &nbsp; &nbsp; <input type="reset" value="Reset" class="btnFS">
+            </form>
+        </div>
+
+        <div class="modal" id="modal">
+            <div class="modal-inner">
+                <h2>Congrats!</h2>
+                <p>You are now our member </p>
+                <button id="closeModal" class="closeModal" onclick="reset()">Close</button>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('dateInput').setAttribute('max', new Date().toISOString().split('T')[0]);
+
+            const form = document.getElementById("registrationForm");
+            const openBtn = document.getElementById("openModal");
+            const closeBtn = document.getElementById("closeModal");
+            const modal = document.getElementById("modal");
+
+            form.addEventListener("submit", function(event) 
+            {
+                event.preventDefault();
+
+                if (form.checkValidity()) 
+                {
+                    modal.classList.add("open");
+                } 
+                else 
+                {
+                    form.reportValidity();
+                }
+            });
+
+            closeBtn.addEventListener("click", () => 
+            {
+                modal.classList.remove("open");
+            });
+
+            function upperCase() 
+            {
+            const x = document.getElementById("fname");
+            x.value = x.value.toUpperCase();
+            }
+
+            function reset()
+            {
+                document.getElementById("fname").value = '';
+                document.getElementById("dateInput").value = '';
+                document.getElementById("email").value = '';
+            }
+        </script>
+    </body>
+    </html>
